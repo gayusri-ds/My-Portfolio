@@ -3,181 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gayathri P | Data Analyst Portfolio</title>
+<title>Gayathri P | AI Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
-html {
-    scroll-behavior: smooth;
-}
 
-body {
-    margin: 0;
+/* ---------------- GLOBAL ---------------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: 'Inter', sans-serif;
-    background: #f4f6f9;
-    color: #1f2937;
 }
 
-header {
-    background: #111827;
-    padding: 15px;
-    text-align: center;
+html{
+    scroll-behavior:smooth;
 }
 
-header a {
-    color: white;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: 500;
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
 }
 
-section {
-    padding: 80px 10%;
+/* Animated Cyber Background */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle at 20% 30%, #7c3aed44 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, #00f5ff33 0%, transparent 40%);
+    animation: moveBg 10s linear infinite alternate;
+    z-index:-1;
 }
 
-.home {
-    background: #111827;
-    color: white;
-    text-align: center;
+@keyframes moveBg{
+    0%{ transform: translate(0,0); }
+    100%{ transform: translate(-5%, -5%); }
 }
 
-.home h1 {
-    font-size: 40px;
+/* ---------------- NAV ---------------- */
+
+header{
+    position:fixed;
+    width:100%;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    z-index:1000;
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    background: #2563eb;
-    color: white;
-    cursor: pointer;
-    margin: 10px 5px;
+header ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
 }
 
-.project-card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+header a{
+    text-decoration:none;
+    color:#ccc;
+    font-weight:500;
+    transition:0.3s;
 }
 
-.project-full {
-    background: white;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+header a:hover{
+    color:#8b5cf6;
 }
+
+/* ---------------- HERO ---------------- */
+
+section{
+    padding:120px 10%;
+}
+
+.home{
+    height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.home h1{
+    font-size:48px;
+    font-family:'Orbitron', sans-serif;
+    background:linear-gradient(90deg,#8b5cf6,#00f5ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.home h3{
+    margin-top:10px;
+    color:#aaa;
+    font-weight:400;
+}
+
+.home p{
+    margin-top:20px;
+    color:#bbb;
+    max-width:600px;
+    line-height:1.6;
+}
+
+.btn{
+    margin-top:30px;
+    padding:12px 25px;
+    border:1px solid #8b5cf6;
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#8b5cf6;
+    box-shadow:0 0 15px #8b5cf6;
+}
+
+/* ---------------- GLASS CARD ---------------- */
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #8b5cf6;
+}
+
+/* ---------------- ABOUT ---------------- */
+
+.about h2{
+    margin-bottom:20px;
+    font-family:'Orbitron', sans-serif;
+}
+
+/* ---------------- SKILLS ---------------- */
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill{
+    text-align:center;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #333;
+    transition:0.3s;
+}
+
+.skill:hover{
+    background:#111;
+    box-shadow:0 0 15px #8b5cf6;
+}
+
+/* ---------------- PROJECTS ---------------- */
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px #8b5cf6;
+}
+
+.project-card h3{
+    margin-bottom:10px;
+}
+
+.project-card p{
+    color:#bbb;
+    font-size:14px;
+}
+
+/* ---------------- CONTACT ---------------- */
+
+.contact a{
+    color:#8b5cf6;
+    text-decoration:none;
+}
+
+.contact a:hover{
+    text-decoration:underline;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#555;
+    font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </header>
 
-<!-- HOME -->
-<section id="home" class="home">
-    <h1>Gayathri P</h1>
-    <h3>Data Analyst | Junior Data Scientist</h3>
-    <p>Portfolio showcasing analytics and machine learning projects.</p>
-
-    <a href="Gayathri_Resume.pdf" download>
-        <button>Download Resume</button>
-    </a>
+<section class="home" id="home">
+<div>
+<h1>Gayathri P</h1>
+<h3>Data Analyst | Junior Data Scientist</h3>
+<p>Aspiring AI professional skilled in Machine Learning, Deep Learning, Data Visualization, and Business Analytics. Passionate about transforming data into actionable insights.</p>
+<a href="#projects"><button class="btn">View Projects</button></a>
+</div>
 </section>
 
-<!-- PROJECT LIST -->
+<section class="about card" id="about">
+<h2>About Me</h2>
+<p>I specialize in building forecasting systems, NLP-based recommendation engines, and deep learning models. Strong foundation in Mathematics and data-driven problem solving.</p>
+</section>
+
+<section id="skills">
+<h2 style="margin-bottom:30px;font-family:'Orbitron';">Core Skills</h2>
+<div class="skills-container">
+<div class="skill">Python</div>
+<div class="skill">SQL</div>
+<div class="skill">Power BI</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Deep Learning</div>
+<div class="skill">NLP</div>
+</div>
+</section>
+
 <section id="projects">
-    <h2>Projects</h2>
+<h2 style="margin-bottom:30px;font-family:'Orbitron';">Projects</h2>
+<div class="projects-container">
 
-    <div class="project-card">
-        <h3>Carbon Emission Forecasting</h3>
-        <p>Deep learning based time-series forecasting project.</p>
-        <a href="#project1"><button>View Full Project</button></a>
-    </div>
+<div class="project-card">
+<h3>Carbon Emission Forecasting</h3>
+<p>Deep learning models (LSTM, GRU, RNN) to predict emission trends.</p>
+</div>
 
-    <div class="project-card">
-        <h3>Lyric-Based Music Recommendation</h3>
-        <p>NLP-based recommendation engine.</p>
-        <a href="#project2"><button>View Full Project</button></a>
-    </div>
+<div class="project-card">
+<h3>Music Recommendation System</h3>
+<p>NLP-based recommendation using TF-IDF and cosine similarity.</p>
+</div>
 
-    <div class="project-card">
-        <h3>Face Recognition System</h3>
-        <p>Computer vision based recognition system.</p>
-        <a href="#project3"><button>View Full Project</button></a>
-    </div>
+<div class="project-card">
+<h3>Face Recognition System</h3>
+<p>SSD + FaceNet + SVM model achieving 95% accuracy.</p>
+</div>
+
+</div>
 </section>
 
-<!-- FULL PROJECT 1 -->
-<section id="project1">
-    <div class="project-full">
-        <h2>Carbon Emission Forecasting</h2>
-
-        <p><strong>Problem:</strong></p>
-        <p>Write detailed explanation here.</p>
-
-        <p><strong>Approach:</strong></p>
-        <p>Explain preprocessing, LSTM, GRU, RNN modeling.</p>
-
-        <p><strong>Impact:</strong></p>
-        <p>Explain business or analytical insights.</p>
-
-        <a href="#project2"><button>Go to Next Project →</button></a>
-        <a href="#projects"><button>Back to Projects</button></a>
-    </div>
+<section class="contact" id="contact">
+<h2 style="margin-bottom:20px;font-family:'Orbitron';">Contact</h2>
+<p>Email: gayumath99@gmail.com</p>
+<p>GitHub: <a href="https://github.com/gayusri-ds" target="_blank">github.com/gayusri-ds</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/gayathri-p-186171309" target="_blank">View Profile</a></p>
 </section>
 
-<!-- FULL PROJECT 2 -->
-<section id="project2">
-    <div class="project-full">
-        <h2>Lyric-Based Music Recommendation</h2>
-
-        <p><strong>Problem:</strong></p>
-        <p>Write detailed explanation here.</p>
-
-        <p><strong>Approach:</strong></p>
-        <p>Explain TF-IDF and cosine similarity.</p>
-
-        <p><strong>Impact:</strong></p>
-        <p>Explain improvement in recommendation accuracy.</p>
-
-        <a href="#project3"><button>Go to Next Project →</button></a>
-        <a href="#projects"><button>Back to Projects</button></a>
-    </div>
-</section>
-
-<!-- FULL PROJECT 3 -->
-<section id="project3">
-    <div class="project-full">
-        <h2>Face Recognition System</h2>
-
-        <p><strong>Problem:</strong></p>
-        <p>Write detailed explanation here.</p>
-
-        <p><strong>Approach:</strong></p>
-        <p>Explain SSD, FaceNet, SVM model.</p>
-
-        <p><strong>Impact:</strong></p>
-        <p>Explain performance and use case.</p>
-
-        <a href="#projects"><button>Back to Projects</button></a>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:gayumath99@gmail.com">gayumath99@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/gayusri-ds" target="_blank">github.com/gayusri-ds</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/gayathri-p-186171309" target="_blank">LinkedIn Profile</a></p>
-</section>
+<footer>
+© 2026 Gayathri P | AI Portfolio
+</footer>
 
 </body>
 </html>
