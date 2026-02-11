@@ -3,291 +3,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gayathri P | AI Portfolio</title>
+<title>Gayathri P | Data Analyst Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* ---------------- GLOBAL ---------------- */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Inter', sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{
+    font-family:'Poppins',sans-serif;
     background:#050505;
-    color:white;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* Animated Cyber Background */
-body::before{
-    content:"";
+/* ===== Neural Background ===== */
+canvas{
     position:fixed;
-    width:200%;
-    height:200%;
-    background: radial-gradient(circle at 20% 30%, #7c3aed44 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, #00f5ff33 0%, transparent 40%);
-    animation: moveBg 10s linear infinite alternate;
+    top:0;
+    left:0;
     z-index:-1;
 }
 
-@keyframes moveBg{
-    0%{ transform: translate(0,0); }
-    100%{ transform: translate(-5%, -5%); }
-}
-
-/* ---------------- NAV ---------------- */
-
-header{
+/* ===== Navigation ===== */
+nav{
     position:fixed;
     width:100%;
-    padding:20px 10%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(12px);
+    padding:15px 60px;
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
+    align-items:center;
     z-index:1000;
 }
-
-header ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
-}
-
-header a{
+nav a{
+    color:#fff;
+    margin-left:25px;
     text-decoration:none;
-    color:#ccc;
-    font-weight:500;
+    font-size:14px;
     transition:0.3s;
 }
-
-header a:hover{
-    color:#8b5cf6;
+nav a:hover{
+    color:#a855f7;
 }
 
-/* ---------------- HERO ---------------- */
-
-section{
-    padding:120px 10%;
-}
-
-.home{
+/* ===== Hero ===== */
+header{
     height:100vh;
     display:flex;
+    flex-direction:column;
+    justify-content:center;
     align-items:center;
+    text-align:center;
 }
-
-.home h1{
-    font-size:48px;
-    font-family:'Orbitron', sans-serif;
-    background:linear-gradient(90deg,#8b5cf6,#00f5ff);
+header h1{
+    font-family:'Orbitron';
+    font-size:52px;
+    background:linear-gradient(90deg,#a855f7,#22d3ee);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
-
-.home h3{
-    margin-top:10px;
-    color:#aaa;
-    font-weight:400;
+.typing{
+    margin-top:15px;
+    font-size:20px;
+    color:#ccc;
 }
 
-.home p{
-    margin-top:20px;
-    color:#bbb;
-    max-width:600px;
-    line-height:1.6;
-}
-
+/* ===== Button ===== */
 .btn{
-    margin-top:30px;
-    padding:12px 25px;
-    border:1px solid #8b5cf6;
-    background:transparent;
-    color:white;
-    cursor:pointer;
+    display:inline-block;
+    margin-top:25px;
+    padding:10px 22px;
+    background:linear-gradient(90deg,#a855f7,#22d3ee);
+    border:none;
+    border-radius:25px;
+    color:#000;
+    font-weight:600;
+    text-decoration:none;
     transition:0.3s;
 }
-
 .btn:hover{
-    background:#8b5cf6;
-    box-shadow:0 0 15px #8b5cf6;
+    transform:scale(1.05);
 }
 
-/* ---------------- GLASS CARD ---------------- */
-
-.card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    padding:30px;
-    border-radius:15px;
-    transition:0.3s;
+/* ===== Sections ===== */
+section{
+    padding:100px 10%;
 }
-
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 20px #8b5cf6;
-}
-
-/* ---------------- ABOUT ---------------- */
-
-.about h2{
-    margin-bottom:20px;
-    font-family:'Orbitron', sans-serif;
-}
-
-/* ---------------- SKILLS ---------------- */
-
-.skills-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.skill{
+h2{
     text-align:center;
+    margin-bottom:40px;
+    font-family:'Orbitron';
+    color:#a855f7;
+}
+
+/* ===== About ===== */
+.about-text{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    color:#ccc;
+    line-height:1.7;
+}
+
+/* ===== Skills Grid ===== */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:20px;
+    max-width:800px;
+    margin:auto;
+}
+.skill-card{
+    background:#111;
     padding:20px;
+    text-align:center;
     border-radius:10px;
-    border:1px solid #333;
+    border:1px solid #222;
     transition:0.3s;
 }
-
-.skill:hover{
-    background:#111;
-    box-shadow:0 0 15px #8b5cf6;
+.skill-card:hover{
+    border:1px solid #a855f7;
+    transform:translateY(-5px);
 }
 
-/* ---------------- PROJECTS ---------------- */
-
+/* ===== Projects ===== */
 .projects-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:25px;
 }
-
 .project-card{
-    background:rgba(255,255,255,0.05);
+    background:#111;
     padding:25px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    border:1px solid #222;
     transition:0.3s;
 }
-
 .project-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px #8b5cf6;
+    border:1px solid #a855f7;
+    transform:translateY(-5px);
 }
-
 .project-card h3{
+    color:#22d3ee;
     margin-bottom:10px;
 }
-
 .project-card p{
-    color:#bbb;
+    color:#ccc;
     font-size:14px;
+    margin-bottom:15px;
+    line-height:1.6;
 }
-
-/* ---------------- CONTACT ---------------- */
-
-.contact a{
-    color:#8b5cf6;
+.project-links a{
+    display:inline-block;
+    margin-right:10px;
+    margin-top:10px;
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:13px;
     text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+.code-btn{
+    background:#a855f7;
+    color:#000;
+}
+.demo-btn{
+    background:#22d3ee;
+    color:#000;
+}
+.project-links a:hover{
+    transform:scale(1.05);
 }
 
-.contact a:hover{
-    text-decoration:underline;
+/* ===== Contact ===== */
+.contact-info{
+    text-align:center;
+    line-height:1.8;
+    color:#ccc;
 }
-
 footer{
     text-align:center;
-    padding:20px;
-    color:#555;
-    font-size:14px;
+    padding:30px;
+    border-top:1px solid #222;
+    color:#777;
 }
-
 </style>
 </head>
 
 <body>
 
+<canvas id="network"></canvas>
+
+<nav>
+<div>Gayathri P</div>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
 <header>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<h1>Gayathri P</h1>
+<div class="typing" id="typing"></div>
+<a href="resume.pdf" download class="btn">Download Resume</a>
 </header>
 
-<section class="home" id="home">
-<div>
-<h1>Gayathri P</h1>
-<h3>Data Analyst | Junior Data Scientist</h3>
-<p>Aspiring AI professional skilled in Machine Learning, Deep Learning, Data Visualization, and Business Analytics. Passionate about transforming data into actionable insights.</p>
-<a href="#projects"><button class="btn">View Projects</button></a>
+<section id="about">
+<h2>About Me</h2>
+<div class="about-text">
+AI-driven Data Analyst and Data Scientist with strong mathematical foundation and practical experience in NLP, Deep Learning, and Forecasting systems. 
+Skilled in building intelligent data-driven applications using Python, SQL, Power BI, and Machine Learning techniques. 
+Focused on transforming complex datasets into actionable business insights.
 </div>
 </section>
 
-<section class="about card" id="about">
-<h2>About Me</h2>
-<p>I specialize in building forecasting systems, NLP-based recommendation engines, and deep learning models. Strong foundation in Mathematics and data-driven problem solving.</p>
-</section>
-
 <section id="skills">
-<h2 style="margin-bottom:30px;font-family:'Orbitron';">Core Skills</h2>
-<div class="skills-container">
-<div class="skill">Python</div>
-<div class="skill">SQL</div>
-<div class="skill">Power BI</div>
-<div class="skill">Machine Learning</div>
-<div class="skill">Deep Learning</div>
-<div class="skill">NLP</div>
+<h2>Core Skills</h2>
+<div class="skills-grid">
+<div class="skill-card">Python</div>
+<div class="skill-card">SQL</div>
+<div class="skill-card">Power BI</div>
+<div class="skill-card">Tableau</div>
+<div class="skill-card">Machine Learning</div>
+<div class="skill-card">Deep Learning</div>
+<div class="skill-card">Computer Vision</div>
+<div class="skill-card">NLP</div>
 </div>
 </section>
 
 <section id="projects">
-<h2 style="margin-bottom:30px;font-family:'Orbitron';">Projects</h2>
+<h2>Projects</h2>
 <div class="projects-container">
 
 <div class="project-card">
+<h3>Lyric-Based Music Recommendation System</h3>
+<p>
+Built an NLP-based recommendation engine analyzing Billboard Top 100 songs (1959–2023).
+Implemented TF-IDF and cosine similarity to recommend thematically similar tracks.
+Developed interactive Streamlit interface for real-time song recommendations.
+</p>
+<div class="project-links">
+<a href="https://github.com/gayusri-ds/Lyric-Based-Music-Recommendation-System-Analyzing-Decades-of-Top-Billboard-Songs" target="_blank" class="code-btn">View Code</a>
+<a href="https://www.linkedin.com/posts/gayathri-p-186171309_musicrecommendation-nlp-machinelearning-activity-7211752412347289601-Jkqq/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6DGrYBn1SdI0iTfu9z5disiQButHkZ8gY" target="_blank" class="demo-btn">Watch Demo</a>
+</div>
+</div>
+
+<div class="project-card">
+<h3>Diet Recipe Chatbot</h3>
+<p>
+Developed a rule-based NLP chatbot that recommends personalized recipes based on dietary preferences.
+Implemented filtering logic and structured natural language pipeline for improved user interaction.
+</p>
+<div class="project-links">
+<a href="https://github.com/gayusri-ds/Diet-Recipe-Chatbot" target="_blank" class="code-btn">View Code</a>
+<a href="https://www.linkedin.com/posts/gayathri-p-186171309_ai-chatbot-machinelearning-activity-7208446425326661632-4hN0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6DGrYBn1SdI0iTfu9z5disiQButHkZ8gY" target="_blank" class="demo-btn">Watch Demo</a>
+</div>
+</div>
+
+<div class="project-card">
 <h3>Carbon Emission Forecasting</h3>
-<p>Deep learning models (LSTM, GRU, RNN) to predict emission trends.</p>
+<p>
+Designed and trained LSTM, GRU, and Simple RNN models to forecast carbon emissions.
+Performed feature engineering and comparative deep learning model evaluation using TensorFlow/Keras.
+</p>
+<div class="project-links">
+<a href="https://github.com/gayusri-ds/Carbon-Emission-Forecasting" target="_blank" class="code-btn">View Code</a>
 </div>
-
-<div class="project-card">
-<h3>Music Recommendation System</h3>
-<p>NLP-based recommendation using TF-IDF and cosine similarity.</p>
-</div>
-
-<div class="project-card">
-<h3>Face Recognition System</h3>
-<p>SSD + FaceNet + SVM model achieving 95% accuracy.</p>
 </div>
 
 </div>
 </section>
 
-<section class="contact" id="contact">
-<h2 style="margin-bottom:20px;font-family:'Orbitron';">Contact</h2>
-<p>Email: gayumath99@gmail.com</p>
-<p>GitHub: <a href="https://github.com/gayusri-ds" target="_blank">github.com/gayusri-ds</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/gayathri-p-186171309" target="_blank">View Profile</a></p>
+<section id="contact">
+<h2>Contact</h2>
+<div class="contact-info">
+Email: gayumath99@gmail.com <br>
+Phone: +91 9444426623 <br>
+GitHub: <a href="https://github.com/gayusri-ds" target="_blank">github.com/gayusri-ds</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/gayathri-p-186171309" target="_blank">View Profile</a>
+</div>
 </section>
 
 <footer>
-© 2026 Gayathri P | AI Portfolio
+© 2026 Gayathri P | Data Analyst & Data Scientist Portfolio
 </footer>
+
+<script>
+/* Typing Effect */
+const text="Data Analyst | Data Scientist";
+let i=0;
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,50);
+}
+}
+typing();
+
+/* Neural Background */
+const canvas=document.getElementById("network");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<70;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-0.5),
+vy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+p.x+=p.vx;
+p.y+=p.vy;
+if(p.x<0||p.x>canvas.width)p.vx*=-1;
+if(p.y<0||p.y>canvas.height)p.vy*=-1;
+
+ctx.fillStyle="#a855f7";
+ctx.fillRect(p.x,p.y,2,2);
+
+particles.forEach(p2=>{
+let dist=Math.hypot(p.x-p2.x,p.y-p2.y);
+if(dist<100){
+ctx.strokeStyle="rgba(168,85,247,0.08)";
+ctx.beginPath();
+ctx.moveTo(p.x,p.y);
+ctx.lineTo(p2.x,p2.y);
+ctx.stroke();
+}
+});
+});
+requestAnimationFrame(animate);
+}
+animate();
+</script>
 
 </body>
 </html>
